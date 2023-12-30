@@ -26,7 +26,7 @@ function App() {
     }
     SetFirstName(str1);
     SetSecondName(str2);
-    setRelationship(arr[(str1.length + str2.length) % 6])
+    setRelationship(arr[(firstName.length + secondName.length) % 6])
   }
 
   const handleClear = () => {
@@ -43,6 +43,7 @@ function App() {
         placeholder="Enter first name"
         onChange={(e) => SetFirstName(e.target.value)}
         value={firstName}
+        name="name1"
       />
       <input
         type="text"
@@ -50,6 +51,7 @@ function App() {
         placeholder="Enter second name"
         onChange={(e) => SetSecondName(e.target.value)}
         value={secondName}
+        name="name2"
       />
       <button data-testid="calculate_relationship" onClick={handleCalculate}>
         Calculate Relationship Future
@@ -57,7 +59,6 @@ function App() {
       <button data-testid="clear" onClick={handleClear}>
         Clear
       </button>
-
       <h3>{relationship}</h3>
     </div>
   );
