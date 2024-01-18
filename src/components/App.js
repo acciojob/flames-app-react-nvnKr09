@@ -7,7 +7,7 @@ function App() {
   const [firstName, SetFirstName] = useState("");
   const [secondName, SetSecondName] = useState("");
   const [relationship, setRelationship] = useState("");
-
+ 
   console.log(firstName, secondName);
 
   const handleCalculate = () => {
