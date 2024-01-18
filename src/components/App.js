@@ -4,37 +4,37 @@ import "../styles/App.css";
 let arr = ["Siblings", "Friends", "Love", "Affection", "Marriage", "Enemy"];
 
 function App() {
-  const [firstName, SetFirstName] = useState("");
-  const [secondName, SetSecondName] = useState("");
+  const [name1, setName1] = useState("");
+  const [name2, setName2] = useState("");
   const [relationship, setRelationship] = useState("");
   const [btnClicked, setBtnClicked] = useState(false);
 
-  console.log(firstName, secondName);
+  console.log(name1, name2);
 
   const handleCalculate = (e) => {
     e.preventDefault();
 
-    if (firstName.trim() === "" || secondName.trim() === "") {
+    if (name1.trim() === "" || name2.trim() === "") {
       setRelationship("Please Enter valid input");
     }
 
-    let str1 = firstName;
-    let str2 = secondName;
+    let str1 = name1;
+    let str2 = name2;
     for (let t of str1) {
-      if (secondName.includes(t)) {
+      if (name2.includes(t)) {
         str1 = str1.replace(t, "");
         str2 = str2.replace(t, "");
       }
     }
-    SetFirstName(str1);
-    SetSecondName(str2);
-    setRelationship(arr[(firstName.length + secondName.length) % 6]);
+    setName1(str1);
+    setName2(str2);
+    setRelationship(arr[(name1.length + name2.length) % 6]);
     setBtnClicked(true);
   };
 
   const handleClear = () => {
-    SetFirstName("");
-    SetSecondName("");
+    setName1("");
+    setName2("");
     setBtnClicked(false);
     setRelationship("");
   };
@@ -46,16 +46,16 @@ function App() {
           type="text"
           data-testid="input1"
           placeholder="Enter first name"
-          onChange={(e) => SetFirstName(e.target.value)}
-          value={firstName}
+          onChange={(e) => setName1(e.target.value)}
+          value={name1}
           name="name1"
         />
         <input
           type="text"
           data-testid="input2"
           placeholder="Enter second name"
-          onChange={(e) => SetSecondName(e.target.value)}
-          value={secondName}
+          onChange={(e) => setName2(e.target.value)}
+          value={name2}
           name="name2"
         />
         <button
@@ -69,7 +69,7 @@ function App() {
           Clear
         </button>
       </form>
-      <h3 data-testid="answer">{btnClicked && relationship}</h3>
+      <h3 data-testid="answer">{relationship}</h3>
     </div>
   );
 }
