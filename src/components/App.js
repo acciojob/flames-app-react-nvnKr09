@@ -11,7 +11,7 @@ function App() {
 
   console.log(name1, name2);
 
-  const handleCalculate = (e) => {
+  function calculateRelationship(e) {
     e.preventDefault();
 
     if (name1.trim() === "" || name2.trim() === "") {
@@ -61,7 +61,7 @@ function App() {
         <button
           data-testid="calculate_relationship"
           type="submit"
-          onClick={handleCalculate}
+          onClick={calculateRelationship}
         >
           Calculate Relationship Future
         </button>
