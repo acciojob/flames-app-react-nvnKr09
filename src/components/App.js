@@ -15,7 +15,7 @@ function App() {
     e.preventDefault();
 
     if (name1.trim() === "" || name2.trim() === "") {
-      setRelationship("Please Enter valid input");
+      setRelationship("Please Enter valid input"); 
     }
 
     let str1 = name1;
