@@ -59,7 +59,7 @@ function App() {
       <button data-testid="clear" onClick={handleClear}>
         Clear
       </button>
-      <h3>{relationship}</h3>
+      <h3 data-testid="answer">{relationship}</h3>
     </div>
   );
 }
